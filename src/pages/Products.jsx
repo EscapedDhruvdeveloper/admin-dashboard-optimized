@@ -5,12 +5,9 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchProducts } from '../services/api';
 
 const Products = () => {
-    // const[products,setProducts]=useState([]);
+   
     const navigate = useNavigate();
-    // useEffect(()=>{
-    //     axios.get("https://fakestoreapi.com/products")
-    //     .then(res => setProducts(res.data));
-    // },[]);
+   
     const {data: products =[],isLoading}=useQuery({
         queryKey:["products"],
         queryFn:()=>fetchProducts().then(res=>res.data),
