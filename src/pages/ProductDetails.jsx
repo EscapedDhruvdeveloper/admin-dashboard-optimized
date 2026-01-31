@@ -7,14 +7,7 @@ import { useQuery } from '@tanstack/react-query'
 
 const ProductDetails = () => {
   const { id } = useParams()
-  // const [Products, setProduct] = useState(null)
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`https://fakestoreapi.com/products/${id}`)
-  //     .then(res => setProduct(res.data))
-  //     .catch(err => console.error(err))
-  // }, [id])
   const {data: product,isLoading}=useQuery({
     queryKey:["product",id],
     queryFn:()=>fetchProductsById(id).then(res=>res.data),
