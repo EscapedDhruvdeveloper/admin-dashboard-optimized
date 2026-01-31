@@ -10,11 +10,11 @@ import {
     Paper, 
     Box,
     Typography,
-    Card,           // Added for mobile view
-    CardContent,    // Added for mobile view
-    Grid            // Added for mobile view
+    Card,           
+    CardContent,    
+    Grid          
 } from '@mui/material';
-import { useQuery } from '@tanstack/react-query'; // Assuming you kept the react-query logic
+import { useQuery } from '@tanstack/react-query'; 
 import { fetchUsers } from '../services/api';
 
 const items = 5;
