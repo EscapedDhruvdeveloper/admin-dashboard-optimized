@@ -20,10 +20,9 @@ import { fetchUsers } from '../services/api';
 const items = 5;
 
 const Users = () => {
-    // --- Logic from previous steps ---
-    const [page, setPage] = useState(1);
     
-    // Using simple fetch logic for this example (replace with useQuery if preferred)
+    const [page, setPage] = useState(1);
+   
     const { data: users = [], isLoading } = useQuery({
         queryKey: ["users"],
         queryFn: () => fetchUsers().then(res => res.data),
@@ -36,13 +35,12 @@ const Users = () => {
     const handleNext = useCallback(() => setPage(p => p + 1), []);
 
     return (
-        // Changed p-8 to p-4 for mobile, p-8 for desktop
+      
         <Box className="p-4 md:p-8 bg-gray-50 min-h-screen">
             <Typography variant="h5" className="mb-4 font-bold text-gray-700 pb-4">
                 User's List
             </Typography>
 
-            {/* --- DESKTOP VIEW: Table (Hidden on small screens) --- */}
             <div className="hidden md:block">
                 <TableContainer component={Paper} elevation={4} className="rounded-lg overflow-hidden">
                     <Table sx={{ minWidth: 650 }}>
@@ -64,7 +62,7 @@ const Users = () => {
                 </TableContainer>
             </div>
 
-            {/* --- MOBILE VIEW: Cards (Visible only on small screens) --- */}
+    
             <div className="block md:hidden space-y-4">
                 {paginated.map((user) => (
                     <Card key={user.id} elevation={3} className="rounded-lg">
@@ -87,14 +85,14 @@ const Users = () => {
                 ))}
             </div>
 
-            {/* Pagination Controls */}
+         
             <div className='mt-6 flex justify-between md:justify-start gap-3'>
                 <Button 
                     variant="outlined" 
                     onClick={handlePrev} 
                     disabled={page === 1}
-                     // Full width buttons on mobile
-                    className="md:w-auto" // Auto width on desktop
+                   
+                    className="md:w-auto" 
                 >
                     Previous
                 </Button>
