@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export default useAuthStore = create((set) => ({
+export const useAuthStore = create((set) => ({
     token:localStorage.getItem("token"),
     login:()=>{
         localStorage.setItem("token","dummy-token");
